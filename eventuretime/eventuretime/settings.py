@@ -21,11 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+c#=c)(%48(rqw8rh5qt&0v*n!41)+q9xm=es=ld8*p3z6cek0'
-FACEBOOK_APP_ID = '909741235767707'
-FACEBOOK_APP_SECRET = 'f2f07f861d02b13c7182615e05f2aaee'
+FACEBOOK_APP_ID = '881496918609724'
+FACEBOOK_APP_SECRET = 'bd66255a9f4d2cd21aa560a41be722e0'
 
 # Custom users
-AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+#AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
