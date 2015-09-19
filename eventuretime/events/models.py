@@ -23,6 +23,9 @@ class Event(models.Model):
 
 	facebook = models.CharField(max_length=100)
 
+	def __str__(self):
+		return self.name
+
 
 class EventPart(models.Model):
 	'''
@@ -65,6 +68,10 @@ class EventPart(models.Model):
 
 	''' Other '''
 	estimated_cost = models.IntegerField()
+
+
+	def __str__(self):
+		return self.name + ' (belongs to ' + self.event.name + ')'
 
 
 
