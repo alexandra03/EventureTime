@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+c#=c)(%48(rqw8rh5qt&0v*n!41)+q9xm=es=ld8*p3z6cek0'
-FACEBOOK_APP_ID = '909741235767707'
+FACEBOOK_APP_ID = 909741235767707
 FACEBOOK_APP_SECRET = 'f2f07f861d02b13c7182615e05f2aaee'
 
 # Custom users
@@ -43,6 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_facebook',
+    'apis',
+    'events',
+    'account',
 )
 
 MIDDLEWARE_CLASSES = (
