@@ -21,6 +21,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+c#=c)(%48(rqw8rh5qt&0v*n!41)+q9xm=es=ld8*p3z6cek0'
+FACEBOOK_APP_ID = '881496918609724'
+FACEBOOK_APP_SECRET = 'bd66255a9f4d2cd21aa560a41be722e0'
+
+# Custom users
+#AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +43,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'events',
+    'apis',
+    'account',
+    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,13 +72,18 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # and add request if you didn't do so already
+                'django.core.context_processors.request',
+                'django.core.context_processors.i18n',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'eventuretime.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
@@ -82,13 +95,17 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.facebook_auth_backend.FacebookAuthBackend',    
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 

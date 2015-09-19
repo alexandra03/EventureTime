@@ -15,8 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from account import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('events.urls')),
+    url(r'^facebook/', include('django_facebook.urls')),
+    url(r'^authenticate/$', views.authenticate, name='authenticate'),
 ]

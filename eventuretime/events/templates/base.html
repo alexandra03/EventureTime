@@ -1,8 +1,8 @@
 {% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="/static/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
-
 
 
 <div class="topnav">
@@ -32,7 +32,7 @@
 		<li><a href="#myevents">&#x25a0; My Events</a></li>
 		<li><a href="#upcoming">&#x25a0; Upcoming Events</a></li>
 		<li><a href="#upcoming">&#x25a0; Browse Events</a></li>
-		<a href="#makeevent"><button>Make an event </button></a>
+		<a href="{% url 'new_event' %}"><button>Make an event </button></a>
 		<div class="row">
 		<img class="icon" src="/static/imgs/home.png"></div>
 		<img class="icon" src="/static/imgs/signout.png"></div>
@@ -42,8 +42,8 @@
 
 </div>
 
-<script type="text/javascript" src="{{STATIC_URL}}static/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}static/js/bootstrap-dropdown.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-dropdown.js"></script>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 

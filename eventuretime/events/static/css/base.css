@@ -16,6 +16,7 @@
 /* 1. Navbars */
 .sidebar {
 	font-family: 'Roboto' sans-serif;
+	max-width: 210px;
 	top:0;
 	left:0;
 	width:25%;
@@ -462,4 +463,20 @@ ul{		float:right;
 
 
 /* 4. Make an Event page */ 
+.content {
+	margin-left: 25%;
+	margin-top: 72px;
+}
 
+td, th {
+	padding: 10px;
+}
+
+.generate-events-form {
+	margin-top: 60px;
+	margin-left: 60px;
+}
+
+.line-group {
+	display: block;
+}
