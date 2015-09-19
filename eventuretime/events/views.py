@@ -22,14 +22,24 @@ def login(request):
 
 	return render_to_response('login.html', context)
 
-#@login_required
+@login_required
 def event(request):
 	user = request.user
 
-	form = GenerateEvent(user)
+	if request.method=='GET':
+		form = GenerateEvent(user)
+		results = None
+	else:
+		form = GenerateEvent(user, request.POST)
+		print form.is_valid()
+		print form.errors
+		results = ['event1', 'event2']
 
 	context = Context({
-		'form': form
+		'form': form,
+		'results': results
 	})
+
+	context.update(csrf(request))
 
 	return render_to_response('new_event.html', context)

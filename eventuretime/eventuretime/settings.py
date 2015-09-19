@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'events',
     'apis',
     'account',
-    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -72,7 +71,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django_facebook.context_processors.facebook',
                 # and add request if you didn't do so already
                 'django.core.context_processors.request',
                 'django.core.context_processors.i18n',
@@ -99,6 +97,7 @@ DATABASES = {
 AUTHENTICATION_BACKENDS = (
     'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'eventuretime.account.facebook_auth_backend.FacebookAuthBackend',
 )
 
 # Internationalization
