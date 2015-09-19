@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'events',
     'apis',
     'account',
+    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,9 +96,8 @@ DATABASES = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
-    'eventuretime.account.facebook_auth_backend.FacebookAuthBackend',
+    'account.facebook_auth_backend.FacebookAuthBackend',    
 )
 
 # Internationalization

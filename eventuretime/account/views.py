@@ -10,7 +10,7 @@ def authenticate(request):
 
 	user = authentication.authenticate(params=request.POST)
 
-	user.backend = 'account.facebook_auth_backend.FacebookAuthBackend'
+	user.backend = 'account.facebook_auth_backend.ModelBackend'
 
 	login(request, user)
 

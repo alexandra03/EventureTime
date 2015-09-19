@@ -65,7 +65,11 @@
 	if (response.status === 'connected') {
 		console.log(response.authResponse)
    	 console.log(response.authResponse.accessToken);
-   	 $.post('{% url "authenticate" %}', {'params': response.authResponse,'fb_id': response.authResponse.userID, 'access_token': response.authResponse.accessToken, csrfmiddlewaretoken: '{{ csrf_token }}'});
+   	 $.post('{% url "authenticate" %}', {'params': response.authResponse, csrfmiddlewaretoken: '{{ csrf_token }}'}).success(
+   	 	function() {
+   	 		window.location.replace('{% url "event" %}');
+   	 	}
+   	 );
    	 // SEND THE ACCESS TOKEN TO THE SERVER
    	 // LOG USER IN, REDIRECT TO DASHBOARD
   	}

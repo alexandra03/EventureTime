@@ -32,4 +32,3 @@ class Facebook:
 		response = requests.get(urlparse.urlunparse(url_parts))
 
 		return response
-		return response.json()['data']['access_token']

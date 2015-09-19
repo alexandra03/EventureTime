@@ -13,7 +13,8 @@ def create_new_user(params):
     user = User.objects.create_user(random_string(10), '', random_string(20))
     user.save()
 
-    Profile.objects.create(user=user, facebook_id=params['params[userID]'])
+    profile = Profile.objects.create(user=user, facebook_id=params['params[userID]'])
+    profile.save()
 
     return user
 
@@ -22,7 +23,8 @@ class FacebookAuthBackend(ModelBackend):
 
     def authenticate(self, params=None):
         try:
-            return Profile.objects.get(facebook_id=params['params[userID]']).user
+            user = Profile.objects.get(facebook_id=params['params[userID]']).user
+            return user
         except Profile.DoesNotExist:
             return create_new_user(params)
 
