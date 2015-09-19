@@ -43,3 +43,10 @@ def event(request):
 	context.update(csrf(request))
 
 	return render_to_response('new_event.html', context)
+
+def dashboard(request):
+	template = loader.get_template('dashboard.html')
+	context = Context({})
+
+	return HttpResponse(template.render(context))
+>>>>>>> amber-de
