@@ -49,4 +49,3 @@ def dashboard(request):
 	context = Context({})
 
 	return HttpResponse(template.render(context))
->>>>>>> amber-de
