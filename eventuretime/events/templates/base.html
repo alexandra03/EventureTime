@@ -1,3 +1,48 @@
-<h1>Hello world!</h1>
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+
+
+<div class="topnav">
+<ul class="">
+	<img class="" class="logoImg" src="/static/imgs/city.jpg">
+        <li>
+            <a href="#">Profile Name &nbsp; &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div class="sidebar">
+	<h1>EventureTime</h1>
+	<div class="logo">
+	<img class="logoImg" src="/static//imgs/icon.jpg"></div>
+	<h2> Profile Name </h2>
+
+
+
+
+	<div class="sidebarText">
+		<li><a href="#myevents">&#x25a0; My Events</a></li>
+		<li><a href="#upcoming">&#x25a0; Upcoming Events</a></li>
+		<li><a href="#upcoming">&#x25a0; Browse Events</a></li>
+		<a href="#makeevent"><button>Make an event </button></a>
+		<div class="row">
+		<img class="icon" src="/static/imgs/home.png"></div>
+		<img class="icon" src="/static/imgs/signout.png"></div>
+	</div>
+	</div>
+
+
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}static/js/bootstrap-dropdown.js"></script>
 
 {% block content %}{% endblock %}
