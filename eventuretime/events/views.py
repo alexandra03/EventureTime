@@ -1,9 +1,8 @@
 from django.shortcuts import render
-
-# Create your views here.
-
 from django.http import HttpResponse
 from django.template import loader, Context
+
+from forms import GenerateEvent
 
 
 def index(request):
@@ -14,7 +13,11 @@ def index(request):
 
 
 def event(request):
+	form = GenerateEvent('a')
+
 	template = loader.get_template('event.html')
-	context = Context({})
+	context = Context({
+		'form': form
+	})
 
 	return HttpResponse(template.render(context))

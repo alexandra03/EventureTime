@@ -18,12 +18,15 @@ class GenerateEvent(forms.Form):
 
 	city = forms.CharField(max_length=20)
 
-	invitees = forms.ModelChoiceField(Profile)
+	invitees = forms.ModelMultipleChoiceField(Profile)
 
 
 	def __init__(self, user, *args, **kwargs):
 		super(GenerateEvent, self).__init__(*args, **kwargs)
-		self.fields['invitees'] = forms.ModelChoiceField(queryset=Profile.objects.all())
+		self.fields['invitees'] = forms.ModelMultipleChoiceField(queryset=Profile.objects.all())
+
+	def generate(self):
+		''' Do cool machine learning things to find events '''
 
 	def save(self, commit=True):
 		instance = super(GenerateEvent, self).save(commit=False)
