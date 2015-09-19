@@ -7,13 +7,15 @@ class Event(models.Model):
 	Collection of EventParts to create the main overall
 	event.
 	'''
+	owner = models.ForeignKey(Profile, related_name='events_owned')
+
 	name = models.CharField(max_length=100)
 	
 	description = models.TextField()
 
-	attending = models.ForeignKey(Profile, related_name='events_attending')
+	attending = models.ManyToManyField(Profile, related_name='events_attending')
 
-	invited = models.ForeignKey(Profile, related_name='events_invited_to')
+	invited = models.ManyToManyField(Profile, related_name='events_invited_to')
 
 	tag = models.CharField(max_length=20)
 
