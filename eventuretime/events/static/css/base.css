@@ -123,7 +123,7 @@
     font-weight: 700;
     font-size: 15px;
     letter-spacing: 4px;
-    border-radius: 4px;
+    border-radius: 2px;
     outline: 0;
     padding-top:15px;
     padding-bottom:15px;
@@ -429,7 +429,34 @@ ul{		float:right;
 
 /* 3. Event page info */
 
+.event {
+	font-family:"Roboto", sans-serif;
+}
+.event h1 {
+	font-size:28px;
+    -webkit-font-smoothing: antialiased;
+}
 
+.bannerPhoto {
+	display:block;
+	margin:auto auto;
+	width:100%;
+	margin-bottom:20px;
+}
+
+.event h4 {
+	color:#414042;
+}
+.event h5 {
+	font-style:italic;
+	color:#414042;
+    -webkit-font-smoothing: antialiased;
+}
+
+.event p {
+	color:#58595b;
+	font-size:13px;
+}
 
 
 

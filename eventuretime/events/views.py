@@ -24,3 +24,9 @@ def dashboard(request):
 	context = Context({})
 
 	return HttpResponse(template.render(context))
+
+def eventpage(request):
+	template = loader.get_template('eventpage.html')
+	context = Context({})
+
+	return HttpResponse(template.render(context))
