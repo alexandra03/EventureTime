@@ -23,7 +23,7 @@ class GenerateEvent(forms.Form):
 
 	def __init__(self, user, *args, **kwargs):
 		super(GenerateEvent, self).__init__(*args, **kwargs)
-		self.fields['invitees'] = forms.ModelMultipleChoiceField(queryset=Profile.objects.all())
+		self.fields['invitees'] = forms.ModelMultipleChoiceField(queryset=user.profile.friends.all())
 
 	def generate(self):
 		''' Do cool machine learning things to find events '''
