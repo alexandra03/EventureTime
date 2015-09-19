@@ -18,3 +18,9 @@ def event(request):
 	context = Context({})
 
 	return HttpResponse(template.render(context))
+
+def dashboard(request):
+	template = loader.get_template('dashboard.html')
+	context = Context({})
+
+	return HttpResponse(template.render(context))

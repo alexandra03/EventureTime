@@ -151,6 +151,7 @@
 
 /* top nav bar */
 .topnav {
+	z-index:10000;
 	height:45px;
 	position:fixed;
 	top:0;
@@ -167,10 +168,10 @@
 	height:15px;
 	width:auto;
 }
-
 ul{		float:right;
         padding: 0;
         list-style: none;
+        z-index:1000;
     }
     ul li{
         display: inline-block;
@@ -189,6 +190,7 @@ ul{		float:right;
         text-decoration:none;
     }
     ul li ul.dropdown{
+        z-index:1000;
         min-width: 125px; /* Set width of the dropdown */
         background: #111;
         display: none;
@@ -220,25 +222,205 @@ ul{		float:right;
     }
 
 
-@media only screen and (max-width : 767px) {
+
+
+
+
+
+
+/* 2. Dashboard (page when you sign in) */
+.wrapper1 {
+	margin-top:45px;
+	width:75%;
+	
+}
+
+.row {
+	margin-left:0;
+	margin-right:0;
+}
+.container .row {
+        margin-left: -15px;
+        margin-right: -15px;
+}
+
+.suggestedEvents {
+	margin-bottom:20px;
+	font-family: 'Roboto', sans-serif;
+}
+
+.suggestedEvents img {
+	margin-top:30px;
+	max-height:100px;
+	width:auto;
+	display:block;
+	margin:auto auto;
+}
+.suggestedEvents h1 {
+	font-size:28px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.suggestedEvents h4 {
+	color:#1baba7;
+	font-weight:bold;
+}
+.suggestedEvents h5 {
+	color:#414042;
+}
+.suggestedEvents h6 {
+	font-style:italic;
+	color:#414042;
+    -webkit-font-smoothing: antialiased;
+}
+.suggestedEvents .row {
+	margin-bottom:20px;
+}
+.eventPreview {
+	border:2px solid #fff;  
+	background-color:#f1f2f2;
+	-o-transition: 0.15s all;
+    -ms-transition: 0.15s all;
+    -moz-transition: 0.21s all;
+    -webkit-transition: 0.15s all;
+}
+.eventPreview:hover {
+	background-color:#e6e7e8;transition: 0.25s all;
+	border:2px solid #1baba7;  
+	cursor:pointer;
+}
+
+
+.categories {
+	width:100%;
+	font-family:"Roboto", sans-serif;
+}
+.categories h1 {
+	font-size:28px;
+    -webkit-font-smoothing: antialiased;
+}
+.category {
+	color:#fff;
+	width:100%;
+	display:table;
+}
+.category span {
+	margin-left:0;
+	display:table-cell;
+	width:100%;
+	background-color:rgba(0,0,0,.5);
+}
+.category h3 {
+	text-transform:uppercase;
+	text-align:center;
+
+}
+.category1 {
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/music.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+.category2{
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/food.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+.category3{
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/party.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+.category4{
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/sports.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+.category5{
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/meeting.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+.category6{
+	width:100%;
+	height:200px;
+    background: url("/static/imgs/celebration.jpg") center no-repeat;
+    margin: 0 auto;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    background-position: center;
+}
+
+
+
+
+
+
+
+@media (max-width : 767px) {
 	.sidebar {
 		display:none;
 	}
 	.sidebar h1 {
 		display:block;
 	}
+	.wrapper1 {
+		width:100%;
+	}
+	.suggestedEvents img {
+		width:90%;
+		height:auto;
+	}
+	.eventPreview {
+		margin-top:20px;
+	}
+.suggestedEvents .row {
+	margin-bottom:0px;
 }
-
-
-
-/* 2. Dashboard (page when you sign in) */
-.wrapper1 {
-	width:75%;
-	float:right;
 }
-
-
-
 
 /* 3. Event page info */
 
