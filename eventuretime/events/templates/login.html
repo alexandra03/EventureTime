@@ -65,7 +65,7 @@
 	if (response.status === 'connected') {
 		console.log(response.authResponse)
    	 console.log(response.authResponse.accessToken);
-   	 $.post('{% url "authenticate" %}', {'fb_id': response.authResponse.userID, 'access_token': response.authResponse.access_token, csrfmiddlewaretoken: '{{ csrf_token }}'});
+   	 $.post('{% url "authenticate" %}', {'params': response.authResponse,'fb_id': response.authResponse.userID, 'access_token': response.authResponse.accessToken, csrfmiddlewaretoken: '{{ csrf_token }}'});
    	 // SEND THE ACCESS TOKEN TO THE SERVER
    	 // LOG USER IN, REDIRECT TO DASHBOARD
   	}

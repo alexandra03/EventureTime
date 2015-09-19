@@ -8,16 +8,17 @@ from apis.facebook import Facebook
 def authenticate(request):
 	authentication = FacebookAuthBackend()
 
-	user = authentication.authenticate(facebook_id=request.POST['fb_id'])
+	user = authentication.authenticate(params=request.POST)
+
 	user.backend = 'account.facebook_auth_backend.FacebookAuthBackend'
 
 	login(request, user)
 
 	facebook = Facebook()
-	token = request.POST['access_token']
+	token = request.POST['params[accessToken]']
 	access_token = facebook.get_access_token(token)
 
-	user.profile.access_token = access_token
-	user.save()
+	#user.profile.access_token = request.POST['params[accessToken]']
+	#user.profile.save()
 
 	return render_to_response('base.html', {})
