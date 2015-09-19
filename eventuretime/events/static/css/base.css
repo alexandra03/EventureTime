@@ -311,9 +311,14 @@ ul{		float:right;
 	background-color:rgba(0,0,0,.5);
 }
 .category h3 {
+	font-weight:bold;
+	padding-top:20px;
 	text-transform:uppercase;
 	text-align:center;
-
+}
+.category p {
+	text-align:center;
+	font-style:italic;
 }
 .category1 {
 	width:100%;
