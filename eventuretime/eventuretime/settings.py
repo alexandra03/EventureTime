@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'apis',
     'events',
     'account',
+    'prediction',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +65,7 @@ ROOT_URLCONF = 'eventuretime.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -73,7 +74,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django_facebook.context_processors.facebook',
-                # and add request if you didn't do so already
                 'django.core.context_processors.request',
                 'django.core.context_processors.i18n',
                 'django.core.context_processors.media',
