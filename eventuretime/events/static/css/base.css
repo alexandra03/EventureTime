@@ -20,7 +20,7 @@
 	left:0;
 	width:25%;
 	position:fixed;
-	background-color:#e6e7e8;
+	background-color:#111;
 	color: #58595b;
 	height:100%;
     -webkit-font-smoothing: antialiased;
@@ -93,7 +93,7 @@
 }
 
 .sidebar li a:hover {
-	background-color: rgba(0,0,0,.1);
+	background-color: rgba(255,255,255,.1);
     transition: 0.25s all;
     -o-transition: 0.25s all;
     -ms-transition: 0.25s all;
