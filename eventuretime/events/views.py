@@ -7,6 +7,8 @@ from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
 
 from forms import GenerateEvent
+from apis.instagram import InstagramAPI
+
 
 
 def index(request):
@@ -31,8 +33,31 @@ def event(request):
 		results = None
 	else:
 		form = GenerateEvent(user, request.POST)
-		print form.is_valid()
-		print form.errors
+
+		results = ['event1', 'event2']
+
+	instagram = InstagramAPI()
+
+	response = instagram.get_images_by_tag('tech').json()['data']
+
+	context = Context({
+		'form': form,
+		'results': results,
+		'pictures': response,
+	})
+
+	context.update(csrf(request))
+
+	return render_to_response('event.html', context)
+
+def new_event(request):
+	user = request.user
+
+	if request.method=='GET':
+		form = GenerateEvent(user)
+		results = None
+	else:
+		form = GenerateEvent(user, request.POST)
 		results = ['event1', 'event2']
 
 	context = Context({
@@ -42,7 +67,7 @@ def event(request):
 
 	context.update(csrf(request))
 
-	return render_to_response('new_event.html', context)
+	return render_to_response('new_event.html', context)	
 
 def dashboard(request):
 	template = loader.get_template('dashboard.html')

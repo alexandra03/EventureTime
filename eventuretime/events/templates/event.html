@@ -9,4 +9,8 @@
 	<h2>This is inside the other template!</h2>
 </div>
 
+{% for pic in pictures %}
+	<img src={{ pic.images.low_resolution.url }}> {{ pic.images.likes.count }}
+{% endfor %}
+
 {% endblock %}

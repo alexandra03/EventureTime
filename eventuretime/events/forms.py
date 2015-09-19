@@ -8,15 +8,9 @@ class GenerateEvent(forms.Form):
 	'''
 	Collects main settings for the event collection
 	'''
+	date = forms.DateField()
+	
 	categories = forms.MultipleChoiceField(choices=EventPart.CATEGORIES)
-
-	start = forms.DateTimeField()
-
-	country = forms.CharField(max_length=20)
-
-	state = forms.CharField(max_length=20)
-
-	city = forms.CharField(max_length=20)
 
 	invitees = forms.ModelMultipleChoiceField(Profile)
 
