@@ -1,5 +1,16 @@
 {% extends 'base.html' %}
-
 {% block content %}
-	{{ form }}
+
+<div class="wrapper1">
+
+<br>
+<br>
+</br>
+	<h2>This is inside the other template!</h2>
+</div>
+
+{% for pic in pictures %}
+	<img src={{ pic.images.low_resolution.url }}> {{ pic.images.likes.count }}
+{% endfor %}
+
 {% endblock %}

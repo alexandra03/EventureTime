@@ -2,22 +2,23 @@ from models import Instagram
 
 import requests
 
-class Instagram:
-
-	self.tags_url = 'https://api.instagram.com/v1/tags/%(tag)s/media/recent?'
-
-	def __init__(self):
-		logins = Instagram.objects.all()
-
-		if logins.count!=1:
-			return None
-
-		self.client_id = logins.first().client_id
+class InstagramAPI:
 
 	def get_images_by_tag(self, tag):
-		params = {'tag': tag}
-		query_api(self.tags_url, params)
+		logins = Instagram.objects.all()
 
+		if logins.count()!=1:
+			return None
 
-	def query_api(self, url, params):
-		return requests.post(url % params)
+		client_id = logins.first().client_id
+
+		params = {
+			'tag': tag, 
+			'client_id': client_id
+		}
+
+		tags_url = 'https://api.instagram.com/v1/tags/%(tag)s/media/recent?client_id=%(client_id)s'
+
+		url = tags_url%params
+
+		return requests.get(url)

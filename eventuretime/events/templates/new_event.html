@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="content">
+	<h2>Generate events</h2>
+
+		<form action='.' method='post' class='generate-events-form'>
+			{% csrf_token %}
+
+			{% for field in form %}
+				<div class='line-group'>
+					{{ field.label }}
+					{{ field }}
+				</div>
+			{% endfor %}
+		
+			<input type="submit">
+		</form>
+	</div>
+
+
+	<script>
+		$(document).ready(function() {
+			$('#id_date').datepicker();		
+		});
+	</script>
+{% endblock %}

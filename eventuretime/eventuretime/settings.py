@@ -25,7 +25,7 @@ FACEBOOK_APP_ID = 909741235767707
 FACEBOOK_APP_SECRET = 'f2f07f861d02b13c7182615e05f2aaee'
 
 # Custom users
-AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+#AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,8 +100,8 @@ DATABASES = {
 }
 
 AUTHENTICATION_BACKENDS = (
-    'django_facebook.auth_backends.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend',
+    'account.facebook_auth_backend.FacebookAuthBackend',
 )
 
 # Internationalization

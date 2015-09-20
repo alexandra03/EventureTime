@@ -1,6 +1,8 @@
 from django.db import models
+<<<<<<< HEAD
 from django.dispatch.dispatcher import receiver
 from django_facebook.models import FacebookModel
+from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django_facebook.utils import get_user_model, get_profile_model
 from eventuretime import settings
@@ -16,18 +18,11 @@ class Profile(FacebookModel):
 	        user = instance
 	        profile_model = get_profile_model()
 
-	    # if profile_model == Profile and created:
-	    #     profile, new = Profile.objects.get_or_create(user=instance)
+	facebook_id = models.CharField(max_length=50, null=True, blank=True)
 
-	# def __str__(self):
-	# 	return self.user.first_name + ' ' + self.user.last_name
+	access_token = models.CharField(max_length=300, null=True, blank=True)
 
-# class Profile(FacebookModel):
-# 	user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
-#
-# 	facebook_id = models.CharField(max_length=50)
-#
-# 	friends = models.ManyToManyField('self', blank=True)
-#
-# 	def __str__(self):
-# 		return self.user.first_name + ' ' + self.user.last_name
+	friends = models.ManyToManyField('self', blank=True)
+
+	def __str__(self):
+		return self.user.first_name or self.facebook_id
