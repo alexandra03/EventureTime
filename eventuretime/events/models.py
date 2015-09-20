@@ -31,7 +31,7 @@ class EventPart(models.Model):
 	'''
 	One portion/leg of an Event.
 	'''
-	event = models.ForeignKey(Event, related_name='event')
+	event = models.ForeignKey(Event, related_name='event_parts')
 
 	CATEGORIES = (
 		('food', 'Food'),

@@ -14,7 +14,26 @@
 }
 
 /* 1. Navbars */
+.title {
+	color:#1baba7;
+	position:fixed;
+	top:-11px;
+	left:20px;
+	z-index:10000;
+	font-size:25px;
+}
+.sidebar h1 {
+	font-weight:bold;
+	letter-spacing:.04em;
+	color:#1baba7;
+	padding-left:5%;
+	font-size:12px;
+}
+.sidebar h1:first-letter {
+	font-size:14px;
+}
 .sidebar {
+	max-width: 220px;
 	font-family: 'Roboto' sans-serif;
 	top:0;
 	left:0;
@@ -43,16 +62,6 @@
 
 .sidebar a {
 	margin: 0 0;
-}
-.sidebar h1 {
-	font-weight:bold;
-	letter-spacing:.04em;
-	color:#1baba7;
-	padding-left:5%;
-	font-size:12px;
-}
-.sidebar h1:first-letter {
-	font-size:14px;
 }
 .logoImg {
 	width:100%;
@@ -245,6 +254,7 @@ ul{		float:right;
 }
 
 .suggestedEvents {
+	margin-top:40px;
 	margin-bottom:20px;
 	font-family: 'Roboto', sans-serif;
 }
@@ -400,39 +410,12 @@ ul{		float:right;
 }
 
 
-
-
-
-
-
-@media (max-width : 767px) {
-	.sidebar {
-		display:none;
-	}
-	.sidebar h1 {
-		display:block;
-	}
-	.wrapper1 {
-		width:100%;
-	}
-	.suggestedEvents img {
-		width:90%;
-		height:auto;
-	}
-	.eventPreview {
-		margin-top:20px;
-	}
-.suggestedEvents .row {
-	margin-bottom:0px;
-}
-}
-
 /* 3. Event page info */
 
 .event {
 	font-family:"Roboto", sans-serif;
 }
-.event h1 {
+.generate h2 {
 	font-size:28px;
     -webkit-font-smoothing: antialiased;
 }
@@ -490,10 +473,40 @@ td, th {
 }
 
 .event-item {
+	font-family:"Roboto", sans-serif;
 	margin-top: 30px;
-	margin-left: 20px;
-	background-color: #F3D8AF;
+	background-color: rgba(27,171,167,.3);
 	padding: 10px;
+	font-size:16px;
+	padding:20px;
+}
+
+.event-item img {
+	border-radius:50%;
+}
+.event-item a {
+	line-height:150%;
+	letter-spacing:.04em;
+	font-color:#111;
+}
+.event-item a:hover {
+	text-decoration:none;
+}
+.event-item button {
+	margin-top:12px;
+	background-color:#f1f2f2;
+	border-radius:5px;
+	border-color:transparent;
+	padding-left:7px;
+	padding-right:7px;
+    transition: 0.15s all;
+    -o-transition: 0.15s all;
+    -ms-transition: 0.15s all;
+    -moz-transition: 0.15s all;
+    -webkit-transition: 0.15s all;
+}
+.event-item button:hover {
+	background-color:#e6e7e8;
 }
 
 input[type="text"] {
@@ -551,4 +564,35 @@ input[type="text"].focus {
 
 .submit input {
 	background-color:red;
+}
+
+
+
+@media (max-width : 767px) {
+	.sidebar {
+		display:none;
+	}
+	.sidebar h1 {
+		display:block;
+	}
+	.wrapper1 {
+		width:100%;
+	}
+	.suggestedEvents img {
+		width:90%;
+		height:auto;
+	}
+	.eventPreview {
+		margin-top:20px;
+	}
+
+	.event img {
+		display:block;
+		margin:auto auto;
+		margin-top:20px;
+	}
+
+	.suggestedEvents .row {
+		margin-bottom:0px;
+	}
 }

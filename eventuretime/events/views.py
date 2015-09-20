@@ -8,6 +8,7 @@ from django.template.context_processors import csrf
 
 from forms import GenerateEvent
 from apis.instagram import InstagramAPI
+from events.models import Event
 
 import json
 
@@ -50,11 +51,19 @@ def event(request):
 
 	return render_to_response('event.html', context)
 
-def eventpage(request):
-	template = loader.get_template('eventpage.html')
-	context = Context({})
+def eventpage(request, event_id):
+	event = Event.objects.get(pk=event_id)
 
-	return HttpResponse(template.render(context))
+	instagram = InstagramAPI()
+
+	pictures = []
+	if event.tag:
+		pictures = instagram.get_images_by_tag(event.tag).json()['data']
+
+	return render_to_response('eventpage.html', {
+		'event': event,
+		'pictures': pictures
+	})
 
 def new_event(request):
 	user = request.user
@@ -81,8 +90,13 @@ def new_event(request):
 	return render_to_response('new_event.html', context)	
 
 def my_events(request):
+	user = request.user 
 
-	return render_to_response('dashboard.html', {})
+	events = Event.objects.filter(owner=user.profile)
+	return render_to_response('event_list.html', {
+		'events': events,
+		'title': 'My events'
+	})
 
 def dashboard(request):
 	template = loader.get_template('dashboard.html')

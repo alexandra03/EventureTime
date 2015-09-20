@@ -19,7 +19,14 @@
 		});
 	</script>
 
+<div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
+
+<div class="row">
+
+	<div class="col-lg-6 col-md-6">
+
 <div class="generate">
+
 	<div class="container-fluid">
 	    <div class="row">
 	        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
@@ -46,24 +53,26 @@
 		</div>
 	</div>
 </div>
+</div>
 
-	{% if results %}
-		<div class="events-list">
-			{% for result in results %}
-				<div class="event-item">
-					{% if result.type == "food" or result.type == "club" or result.type == "other" %}
-						<img src={{ result.image }}> {{ result.name }} 
 
-					{% elif result.type == "concert" %}
-						{{ result.name }}, {{ result.location }} <br/>
-						<a href={{ result.url }}>Buy tickets</a>
-					{% endif %}
-					<br/>
-				</div>
-			{% endfor %}
+<div class="col-lg-6 col-md-6">
 
-			<button class="submit choose orange">Choose</button>
+		
+		{% for result in results %}
+			<div class="event-item">
+				{% if result.type == "food" or result.type == "club" or result.type == "other" %}
+					<img src={{ result.image }}> {{ result.name }} 
+
+				{% elif result.type == "concert" %}
+					{{ result.name }}, {{ result.location }} <br/>
+					<a href={{ result.url }}><button>Buy tickets</button></a>
+				{% endif %}
+				<br/>
+			</div>
+		{% endfor %}
 		</div>
-	{% endif %}
+
+	</div>
 	</div>
 {% endblock %}
