@@ -1,4 +1,4 @@
-/* CSS file! 
+/* CSS file!
 a. home page
 1. Navbars
 2. Dashboard
@@ -259,7 +259,7 @@ a:focus {
     -moz-animation-timing-function: linear;
 }
 
-@-webkit-keyframes pulse {    
+@-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -276,7 +276,7 @@ a:focus {
     }
 }
 
-@-moz-keyframes pulse {    
+@-moz-keyframes pulse {
     0% {
         -moz-transform: scale(1);
         transform: scale(1);
@@ -653,7 +653,7 @@ ul{		float:right;
 .wrapper1 {
 	margin-top:45px;
 	width:75%;
-	
+
 }
 
 .row {
@@ -699,7 +699,7 @@ ul{		float:right;
 	margin-bottom:20px;
 }
 .eventPreview {
-	border:2px solid #fff;  
+	border:2px solid #fff;
 	background-color:#f1f2f2;
 	-o-transition: 0.15s all;
     -ms-transition: 0.15s all;
@@ -708,7 +708,7 @@ ul{		float:right;
 }
 .eventPreview:hover {
 	background-color:#e6e7e8;transition: 0.25s all;
-	border:2px solid #1baba7;  
+	border:2px solid #1baba7;
 	cursor:pointer;
 }
 
@@ -832,7 +832,8 @@ ul{		float:right;
 	font-size:28px;
     -webkit-font-smoothing: antialiased;
 }
-a, a:hover, a:active, a:visited { color: white; }
+a, a:hover, a:active { color: white; }
+a:visited { color: #1baba7; }
 
 .bannerPhoto {
 	display:block;
@@ -866,7 +867,7 @@ a, a:hover, a:active, a:visited { color: white; }
 }
 
 
-/* 4. Make an Event page */ 
+/* 4. Make an Event page */
 .content {
 	margin-left: 25%;
 	margin-top: 72px;
@@ -962,7 +963,7 @@ input[type="text"].focus {
     -o-transition: 0.25s all;
     -ms-transition: 0.25s all;
     -moz-transition: 0.25s all;
-    -webkit-transition: 0.25s all;	
+    -webkit-transition: 0.25s all;
 }
 
 .uber {
@@ -987,7 +988,7 @@ input[type="text"].focus {
     -o-transition: 0.25s all;
     -ms-transition: 0.25s all;
     -moz-transition: 0.25s all;
-    -webkit-transition: 0.25s all;	
+    -webkit-transition: 0.25s all;
 
      a {
      	font-color: white;

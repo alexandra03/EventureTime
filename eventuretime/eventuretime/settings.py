@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'events',
     'apis',
     'account',
+    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
