@@ -98,6 +98,15 @@ def my_events(request):
 		'title': 'My events'
 	})
 
+def events_category(request, category):
+	user = request.user 
+	events = Event.objects.filter(event_parts__category=category)
+	
+	return render_to_response('event_list.html', {
+		'events': events,
+		'title': category.title()
+	})
+
 def dashboard(request):
 	template = loader.get_template('dashboard.html')
 	context = Context({})
