@@ -13,13 +13,18 @@ class GenerateEvent(forms.Form):
 	'''
 	Collects main settings for the event collection
 	'''
+	date = forms.DateField(widget=forms.TextInput(attrs={'class' : 'date'}));
+	
+	categories = forms.ChoiceField(choices=EventPart.CATEGORIES,widget=forms.Select(attrs={'class':'categoriesDrop'}))
+
 	date = forms.DateField()
 
 	location = forms.CharField()
 
 	categories = forms.MultipleChoiceField(choices=EventPart.CATEGORIES)
 
-	invitees = forms.ModelMultipleChoiceField(Profile)
+
+	invitees = forms.ModelMultipleChoiceField(Profile,widget=forms.Select(attrs={'class':'categoriesDrop'}));
 
 
 	def __init__(self, user, *args, **kwargs):

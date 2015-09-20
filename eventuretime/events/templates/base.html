@@ -5,6 +5,11 @@
 <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
 
 
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery-2.1.4.js">
+</script> 
+<script type="text/javascript" src="/static/js/jquery-2.1.4.js">
+</script> 
+
 <div class="topnav">
 <ul class="">
 	<img class="" class="logoImg" src="/static/imgs/city.jpg">
@@ -33,9 +38,6 @@
 		<li><a href="#upcoming">&#x25a0; Upcoming Events</a></li>
 		<li><a href="#upcoming">&#x25a0; Browse Events</a></li>
 		<a href="{% url 'new_event' %}"><button>Make an event </button></a>
-		<div class="row">
-		<img class="icon" src="/static/imgs/home.png"></div>
-		<img class="icon" src="/static/imgs/signout.png"></div>
 	</div>
 	</div>
 
