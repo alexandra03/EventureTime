@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'apis',
     'account',
     'django_facebook',
-    'prediction',
 )
 
 MIDDLEWARE_CLASSES = (
