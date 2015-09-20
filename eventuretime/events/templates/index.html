@@ -1,0 +1,137 @@
+{% load staticfiles %}
+{% block content %}
+    <!-- Bootstrap Core CSS -->
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+
+<link rel="stylesheet" type="text/css" href="/static/css/animate.css" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+<script type="text/javascript" src="/static/js/wow.js"></script>
+
+<script>
+ new WOW().init();
+</script>
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <i class="fa fa-play-circle"></i>  <span class="light1" >Event</span><span class="light2">ure Time</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">Sign up</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Header -->
+    <header class="intro">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                         <h1 class="wow fadeIn brand-heading">Eventure <mark style="color:#fff ;background-color:transparent;">Time</mark> </h1>
+                        <p class="wow fadeIn delay1 intro-text">
+                            No plans? No problem.</p>
+                        <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container content-section text-center">
+        <div class="row">
+            <div class="wow fadeIn col-lg-8 col-lg-offset-2">
+                <h2> About Eventure Time </h2>
+                <p>Ever wondered what's going on around you? Looking to take an awesome instagram picture to make all of your follwers jealous of your social life?
+                    <br>
+                    <br>
+                    <b>Eventure Time is an online platform that allows you to find any event near you based on your interest. Simply login to Facebook and instantaneously see events you might be interested in. </b>
+                    <br>
+                    <br>
+                        Don't see an event that you're interested in? Search for a variety of different events such as netowrking events, concerts, sporting events and many more!
+                        <br>
+                        <br>
+                        <b> Found an event you like but don't have a way of getting there? We've got you covered. With a click of a button, you can get an <a href="https://www.uber.com/">Uber</a> to your desired event</p>
+                            <br>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Sign Up for Eventure Time</h2>
+                    <p> Sign up and Login using Facebook</p>
+                    <a href="http://facebook.com"><button> Login to Facebook</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container content-section text-center">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h2>Contact Eventure Time</h2>
+                <p> You have questions? We've got answers. Email us any questions or feedback you have about Eventure Time</p>
+                <p><a href="mailto:feedback@EventureTime.com"> Questions@Eventuretime.com</a>
+                </p>
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="https://twitter.com/HacktheNorth" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/alexandra03/EventureTime" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    
+
+</body>
+{% endblock %}
+
