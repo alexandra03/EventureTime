@@ -15,11 +15,17 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from events import urls as event_urls
+from prediction import urls as prediction_urls
 from account import views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('events.urls')),
-    url(r'^facebook/', include('django_facebook.urls')),
+    url(r'^', include(event_urls)),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login',
+                        {'template_name': 'prediction/login.html'}),
+    # url(r'^facebook/', include('django_facebook.urls')),
+    # url(r'^accounts/', include('django_facebook.auth_urls')),
+    url(r'^prediction/', include(prediction_urls)),
     url(r'^authenticate/$', views.authenticate, name='authenticate'),
 ]

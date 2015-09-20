@@ -6,10 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
 
+from events.forms import GenerateEvent
 from forms import GenerateEvent
 from apis.instagram import InstagramAPI
-
-
 
 def index(request):
 	template = loader.get_template('base.html')
@@ -67,7 +66,7 @@ def new_event(request):
 
 	context.update(csrf(request))
 
-	return render_to_response('new_event.html', context)	
+	return render_to_response('new_event.html', context)
 
 def dashboard(request):
 	template = loader.get_template('dashboard.html')

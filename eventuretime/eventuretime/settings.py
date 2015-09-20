@@ -21,8 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '+c#=c)(%48(rqw8rh5qt&0v*n!41)+q9xm=es=ld8*p3z6cek0'
-FACEBOOK_APP_ID = '881496918609724'
-FACEBOOK_APP_SECRET = 'bd66255a9f4d2cd21aa560a41be722e0'
+FACEBOOK_APP_ID = 909741235767707
+FACEBOOK_APP_SECRET = 'f2f07f861d02b13c7182615e05f2aaee'
 
 # Custom users
 #AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
@@ -46,6 +46,10 @@ INSTALLED_APPS = (
     'apis',
     'account',
     'django_facebook',
+    'apis',
+    'events',
+    'account',
+    'prediction',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -64,7 +68,7 @@ ROOT_URLCONF = 'eventuretime.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -72,7 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # and add request if you didn't do so already
+                'django_facebook.context_processors.facebook',
                 'django.core.context_processors.request',
                 'django.core.context_processors.i18n',
                 'django.core.context_processors.media',
@@ -97,7 +101,7 @@ DATABASES = {
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'account.facebook_auth_backend.FacebookAuthBackend',    
+    'account.facebook_auth_backend.FacebookAuthBackend',
 )
 
 # Internationalization
@@ -118,7 +122,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
-
-

@@ -7,5 +7,5 @@ urlpatterns = [
     url(r'^event/$', views.event, name='event'),
     url(r'^login/$', views.login, name='login'),
     url(r'^dashboard/$', views.dashboard, name='dashboard'),
-    url(r'^events/new/$', views.new_event, name='new_event')
+    url(r'^events/new/$', views.new_event, name='new_event'),
 ]

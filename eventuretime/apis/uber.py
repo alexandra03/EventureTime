@@ -1,4 +1,4 @@
-from models import Uber
+from apis.models import Uber
 from rauth import OAuth2Service
 from time import sleep
 
