@@ -1,5 +1,6 @@
-import urllib
+import urllib.parse as uparse
 import requests
+import json
 
 from django.conf import settings
 
@@ -21,13 +22,26 @@ class Facebook:
 
 	def query_api(self, path, params):
 		url = self.BASE_URL+path
+		url_parts = list(uparse.urlparse(url))
 
-		url_parts = list(urlparse.parse(url))
-		query = dict(urlparse.parse_qsl(url_parts[4]))
+		query = dict(uparse.parse_qsl(url_parts[4]))
 		query.update(params)
 
-		url_parts[4] = urllib.urlencode(query)
+		url_parts[4] = uparse.urlencode(query)
 
-		response = requests.get(urlparse.urlunparse(url_parts))
+		response = requests.get(uparse.urlunparse(url_parts))
+		response = json.loads(response.text)
 
-		return response
+		ml_data = {}
+		next = response["events"]["data"]["next"]
+
+		while next != None:
+			for resp in response:
+				ml_data["events"]["data"]["description"] = response["events"]["data"]["description"]
+				ml_data["events"]["data"]["name"] = response["events"]["data"]["name"]
+
+			response = json.loads(requests.get(next).text)
+
+		# import ipdb
+		# ipdb.set_trace()
+		return ml_data

@@ -10,8 +10,11 @@ from events.forms import GenerateEvent
 from events.models import EventPart
 from apis.instagram import InstagramAPI
 from apis.uber import UberAPI
+from apis.facebook import Facebook
 
 from geolocation.google_maps import GoogleMaps
+
+import indicoio
 
 def index(request):
 	template = loader.get_template('base.html')
@@ -105,6 +108,40 @@ def list_categories(request):
 
 	context = Context({
 		'results': categories,
+	})
+
+	context.update(csrf(request))
+
+	return render_to_response('event.html', context)
+
+def recommended_events(request):
+	user = request.user
+	data = Facebook()
+	events_path = '/v2.4/me'
+	params = {
+	    'fields': ['events'],
+	    'access_token': user.access_token,
+	}
+
+	ml_data = data.query_api(events_path, params)
+
+	indicoio.config.api_key = 'f400ceccb73c9d2d55e5744a17c11f8d'
+	key_words = []
+
+	for description in ml_data["events"]["data"]["description"]:
+	    key_words += indicoio.keywords(description)
+
+	for name in ml_data["events"]["data"]["name"]:
+	    key_words += indicoio.keywords(name)
+
+	# filter events by keywords
+	possible_events = {}
+	for keyword in key_words:
+	    possible_events += Event.objects.filter(keyword in name)
+	    possible_events += Event.objects.filter(keyword in description)
+
+	context = Context({
+		'results': possible_events,
 	})
 
 	context.update(csrf(request))
