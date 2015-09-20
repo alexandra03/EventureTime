@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+	<script>
+	function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(function(position){
+	        	$('#latitude').val(position.coords.latitude);
+	        	$('#longitude').val(position.coords.longitude);
+	        });
+	    }
+	}
+	getLocation();
+	</script>
 
 <div class="generate">
 <div class="container-fluid">
@@ -21,17 +32,28 @@
 				</div>
 			{% endfor %}
 		
-			<input type="submit">
+			<input type="hidden" id="latitude" name='latitude'>
+			<input type="hidden" id="longitude" name='longitude'>
+			<button type="submit" class="submit">Generate!</button>
 		</form>
 	</div>
 </div>
 </div>
 </div>
 
+		<div class="events-list">
+		{% for result in results %}
+			<div class="event-item">
+				{% if result.type == "food" or result.type == "club" or result.type == "other" %}
+					<img src={{ result.image }}> {{ result.name }} 
 
-	<script>
-		$(document).ready(function() {
-			$('#id_date').datepicker();		
-		});
-	</script>
+				{% elif result.type == "concert" %}
+					{{ result.name }}, {{ result.location }} <br/>
+					<a href={{ result.url }}>Buy tickets</a>
+				{% endif %}
+				<br/>
+			</div>
+		{% endfor %}
+		</div>
+	</div>
 {% endblock %}
