@@ -31,7 +31,7 @@
 
 			{% for field in form %}
 				<div class='line-group'>
-					{{ field.label }}
+					<h6>{{ field.label }}</h6>
 
 					
 					{{ field }}
@@ -65,6 +65,9 @@
 				<br/>
 			</div>
 		{% endfor %}
+
+		<button class="submit choose orange">Choose</button>
+
 		</div>
 	</div>
 	</div>

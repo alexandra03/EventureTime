@@ -37,6 +37,7 @@
 	top:0;
 	left:0;
 	width:25%;
+	max-width:210px;
 	position:fixed;
 	background-color:#111;
 	color: #fff;
@@ -557,6 +558,14 @@ input[type="text"].focus {
 	font-size:28px;
     -webkit-font-smoothing: antialiased;
 }
+
+.submit input {
+	background-color:red;
+}
+
+.orange {
+	background-color: #E08A20;
+	}
 
 .submit input {
 	background-color:red;

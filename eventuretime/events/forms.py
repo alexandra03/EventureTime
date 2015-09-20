@@ -10,11 +10,8 @@ class GenerateEvent(forms.Form):
 	'''
 	Collects main settings for the event collection
 	'''
-	date = forms.DateField(widget=forms.TextInput(attrs={'class' : 'date'}));
+	date   = forms.DateField(widget=forms.TextInput(attrs={'class' : 'date'}));
 	
-	categories = forms.ChoiceField(choices=EventPart.CATEGORIES,widget=forms.Select(attrs={'class':'categoriesDrop'}))
-
-	date = forms.DateField()
 
 	location = forms.CharField()
 
