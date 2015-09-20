@@ -42,7 +42,6 @@ INSTALLED_APPS = (
     'events',
     'apis',
     'account',
-    'django_facebook',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,7 +93,7 @@ DATABASES = {
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'account.facebook_auth_backend.FacebookAuthBackend',    
+    'account.facebook_auth_backend.FacebookAuthBackend',
 )
 
 # Internationalization
