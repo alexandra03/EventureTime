@@ -10,7 +10,7 @@ class Event(models.Model):
 	owner = models.ForeignKey(Profile, related_name='events_owned')
 
 	name = models.CharField(max_length=100, default='My new event')
-	
+
 	description = models.TextField()
 
 	attending = models.ManyToManyField(Profile, related_name='events_attending')
@@ -38,7 +38,7 @@ class EventPart(models.Model):
 		('club', 'Club'),
 		('movie', 'Movie'),
 		('place', 'Place'),
-		('other', 'Other'),				
+		('other', 'Other'),
 		('sports', 'Sports'),
 		('concert', 'Concert'),
 	)
@@ -65,6 +65,10 @@ class EventPart(models.Model):
 
 	venue = models.CharField(max_length=50)
 
+	latitude = models.DecimalField(max_digits=9, decimal_places=6)
+
+	longitude = models.DecimalField(max_digits=9, decimal_places=6)
+
 
 	''' Other '''
 	estimated_cost = models.IntegerField(default=0)
@@ -72,7 +76,3 @@ class EventPart(models.Model):
 
 	def __str__(self):
 		return self.name + ' (belongs to ' + self.event.name + ')'
-
-
-
-

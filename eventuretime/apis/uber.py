@@ -159,3 +159,19 @@ class UberAPI:
         )
 
         return response
+
+    def update_request(self, request_id, status):
+        url = SANDBOX_HOST + SANDBOX_REQUEST_PATH + '/' + request_id
+
+        parameters = {
+            "status": status,
+        }
+
+        response = requests.put(
+            url,
+            headers = {
+                'Authorization': 'Bearer %s' % self.access_token
+            }
+        )
+
+        return response

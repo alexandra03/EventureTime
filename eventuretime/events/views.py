@@ -8,8 +8,11 @@ from django.template.context_processors import csrf
 
 from forms import GenerateEvent
 from apis.instagram import InstagramAPI
+from apis.facebook import Facebook
+from apis.uber import UberAPI
 from events.models import Event
 
+import indicoio
 import json
 
 def index(request):
@@ -95,10 +98,10 @@ def new_event(request):
 
 	context.update(csrf(request))
 
-	return render_to_response('new_event.html', context)	
+	return render_to_response('new_event.html', context)
 
 def my_events(request):
-	user = request.user 
+	user = request.user
 
 	events = Event.objects.filter(owner=user.profile)
 	return render_to_response('event_list.html', {
@@ -107,9 +110,9 @@ def my_events(request):
 	})
 
 def events_category(request, category):
-	user = request.user 
+	user = request.user
 	events = Event.objects.filter(event_parts__category=category)
-	
+
 	return render_to_response('event_list.html', {
 		'events': events,
 		'title': category.title()
@@ -120,3 +123,21 @@ def dashboard(request):
 	context = Context({})
 
 	return HttpResponse(template.render(context))
+
+def request_uber(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	user = request.user
+	lat = user.latitude
+	long = user.longitude
+	server_token = user.server_token
+	uber = UberAPI()
+
+	products = uber.available_products(server_token, lat, long).json()
+	product_id = products["products"][0]["product_id"]
+
+	req_uber = uber.request(lat, long, event.latitude, event.longitude, product_id)
+	# uber.update_request(req_uber["request_id"], "accepted")
+
+	return render_to_response('eventpage.html', {
+		'uber': req_uber,
+	})
