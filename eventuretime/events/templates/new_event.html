@@ -35,7 +35,6 @@
 				<form action='.' method='post' class='generate-events-form'>
 					{% csrf_token %}
 
-
 					{% for field in form %}
 						<div class='line-group'>
 							{{ field.label }}
@@ -71,6 +70,7 @@
 				<br/>
 			</div>
 		{% endfor %}
+
 		</div>
 
 	</div>

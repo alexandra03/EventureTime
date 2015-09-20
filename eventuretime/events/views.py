@@ -19,6 +19,13 @@ def index(request):
 	return HttpResponse(template.render(context))
 
 
+def home(request):
+	template = loader.get_template('index.html')
+	context = Context({})
+
+	return HttpResponse(template.render(context))
+
+
 def login(request):
 	context = {}
 	context.update(csrf(request))
@@ -33,7 +40,7 @@ def event(request):
 		form = GenerateEvent(user)
 		results = None
 	else:
-		form = GenerateEvent(user, request.POST['longitude'], request.POST['latitude'], request.POST)
+		form = GenerateEvent(user, request.POST)
 
 		results = ['event1', 'event2']
 
@@ -50,6 +57,7 @@ def event(request):
 	context.update(csrf(request))
 
 	return render_to_response('event.html', context)
+
 
 def eventpage(request, event_id):
 	event = Event.objects.get(pk=event_id)
