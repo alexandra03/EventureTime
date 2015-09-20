@@ -13,6 +13,10 @@
 	left:0;
 }
 
+h3 {
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 /* 1. Navbars */
 .title {
 	color:#1baba7;
@@ -329,6 +333,7 @@ ul{		float:right;
 .category p {
 	text-align:center;
 	font-style:italic;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 .category1 {
 	width:100%;
