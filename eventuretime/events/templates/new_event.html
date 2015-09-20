@@ -28,13 +28,14 @@
 		
 			<input type="hidden" id="latitude" name='latitude'>
 			<input type="hidden" id="longitude" name='longitude'>
-			<input type="submit">
+			<button type="submit" class="submit">Generate!</button>
 		</form>
 
+		<div class="events-list">
 		{% for result in results %}
 			<div class="event-item">
 				{% if result.type == "food" or result.type == "club" or result.type == "other" %}
-					{{ result.name }} <img src={{ result.image }}>
+					<img src={{ result.image }}> {{ result.name }} 
 
 				{% elif result.type == "concert" %}
 					{{ result.name }}, {{ result.location }} <br/>
@@ -43,5 +44,6 @@
 				<br/>
 			</div>
 		{% endfor %}
+		</div>
 	</div>
 {% endblock %}

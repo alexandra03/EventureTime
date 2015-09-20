@@ -54,7 +54,7 @@ class GenerateEvent(forms.Form):
 
 			itinerary.append(event)			
 
-		if 'other' in categories:
+		if 'other' in categories or 'sports' in categories:
 			results = yelp.search('active', location)['businesses']
 			place = results[0]
 			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'other'}

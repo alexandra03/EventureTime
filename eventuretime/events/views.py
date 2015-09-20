@@ -62,6 +62,7 @@ def new_event(request):
 		if form.is_valid():
 			results = form.generate(request.POST['longitude'], request.POST['latitude'])
 		else:
+			results = []
 			print form.errors
 
 	context = Context({
