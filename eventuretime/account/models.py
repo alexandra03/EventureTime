@@ -11,9 +11,9 @@ class Profile(models.Model):
 
 	friends = models.ManyToManyField('self', blank=True)
 
-	latitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True)
+	latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
 
-	longitude = models.DecimalField(max_digits=9, decimal_places=6, blank=True)
+	longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
 
 	server_token = models.CharField(max_length=300, null=True, blank=True)
 
