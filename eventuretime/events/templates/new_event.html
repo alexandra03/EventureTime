@@ -14,9 +14,7 @@
 
 		$(document).ready(function() {
 			$('.choose').click(function() {
-				$.post('{% url "save_event" %}', {'results': JSON.stringify('{{ results }}'), csrfmiddlewaretoken: '{{ csrf_token }}'}).success(function() {
-					window.location.replace('{% url "dashboard" %}');
-				});			
+				window.location.replace('{% url "dashboard" %}');		
 			});
 		});
 	</script>

@@ -80,6 +80,9 @@ def new_event(request):
 
 	return render_to_response('new_event.html', context)	
 
+def my_events(request):
+
+	return render_to_response('dashboard.html', {})
 
 def dashboard(request):
 	template = loader.get_template('dashboard.html')
