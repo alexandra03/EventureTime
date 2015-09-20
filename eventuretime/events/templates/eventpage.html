@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
@@ -24,7 +23,11 @@
             </h5>
             <h4> 
                 {% for part in event.event_parts.all %}
-                    <button class="uber">Request an Uber to {{ part.name }}</button>
+                    <button class="uber">
+                        <a href="https://m.uber.com/sign-up?client_id=KrkcXqmSkCj26bYcnsoP0xwe4HqVyO20">
+                            Request an Uber to {{ part.name }}
+                        </a>
+                    </button>
                 {% endfor %}
             </h4>   
             <hr>         
