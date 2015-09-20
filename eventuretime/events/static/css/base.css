@@ -16,7 +16,6 @@
 /* 1. Navbars */
 .sidebar {
 	font-family: 'Roboto' sans-serif;
-	max-width: 210px;
 	top:0;
 	left:0;
 	width:25%;
@@ -430,9 +429,44 @@ ul{		float:right;
 
 /* 3. Event page info */
 
+.event {
+	font-family:"Roboto", sans-serif;
+}
+.event h1 {
+	font-size:28px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bannerPhoto {
+	display:block;
+	margin:auto auto;
+	width:100%;
+	margin-bottom:20px;
+}
+
+.event h4 {
+	color:#414042;
+}
+.event h5 {
+	font-style:italic;
+	color:#414042;
+    -webkit-font-smoothing: antialiased;
+}
+
+.event p {
+	color:#58595b;
+	font-size:13px;
+}
 
 
-
+.date {
+	color:#1ba2a7;
+	margin-top:10px;
+	margin-bottom:25px;
+}
+.categoriesDrop {
+	margin-bottom:25px;
+}
 
 
 /* 4. Make an Event page */ 
@@ -446,10 +480,22 @@ td, th {
 }
 
 .generate-events-form {
-	margin-top: 60px;
-	margin-left: 60px;
+	margin-top: 30px;
+	margin-left: 40px;
 }
 
 .line-group {
 	display: block;
+}
+
+.generate {
+	font-family:"Roboto", sans-serif;
+}
+.generate h1 {
+	font-size:28px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.submit input {
+	background-color:red;
 }

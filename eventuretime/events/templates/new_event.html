@@ -2,15 +2,21 @@
 
 {% block content %}
 
-	<div class="content">
+<div class="generate">
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
 	<h2>Generate events</h2>
 
 		<form action='.' method='post' class='generate-events-form'>
 			{% csrf_token %}
 
+
 			{% for field in form %}
 				<div class='line-group'>
 					{{ field.label }}
+
+					
 					{{ field }}
 				</div>
 			{% endfor %}
@@ -18,6 +24,9 @@
 			<input type="submit">
 		</form>
 	</div>
+</div>
+</div>
+</div>
 
 
 	<script>
