@@ -858,8 +858,6 @@ a, a:active { color: white; }
 
 .date {
 	color:#1ba2a7;
-	margin-top:10px;
-	margin-bottom:25px;
 }
 .categoriesDrop {
 	margin-bottom:25px;
@@ -883,7 +881,6 @@ td, th {
 
 .line-group {
 	display: block;
-	margin-bottom: 20px;
 }
 
 .event-item {
@@ -924,13 +921,13 @@ td, th {
 }
 
 input[type="text"] {
-  padding: 10px;
-  border: solid 5px #1baba7;
+  padding: 5px;
+  border: solid 2px #1baba7;
   transition: border 0.3s;
 }
 select {
   padding: 10px;
-  border: solid 5px #1baba7;
+  border: solid 3px #1baba7;
   transition: border 0.3s;
 }
 
