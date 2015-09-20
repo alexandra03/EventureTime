@@ -25,7 +25,7 @@ FACEBOOK_APP_ID = 909741235767707
 FACEBOOK_APP_SECRET = 'f2f07f861d02b13c7182615e05f2aaee'
 
 # Custom users
-#AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
+AUTH_USER_MODEL = 'django_facebook.FacebookCustomUser'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,9 +46,6 @@ INSTALLED_APPS = (
     'apis',
     'account',
     'django_facebook',
-    'apis',
-    'events',
-    'account',
     'prediction',
 )
 

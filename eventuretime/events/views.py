@@ -7,9 +7,9 @@ from django.shortcuts import render_to_response
 from django.template.context_processors import csrf
 
 from events.forms import GenerateEvent
-from forms import GenerateEvent
+from events.models import EventPart
 from apis.instagram import InstagramAPI
-from account.models import Profile
+from apis.uber import UberAPI
 
 from geolocation.google_maps import GoogleMaps
 
@@ -93,6 +93,18 @@ def near_user(request):
 	context = Context({
 		'form': form,
 		'results': results,
+	})
+
+	context.update(csrf(request))
+
+	return render_to_response('event.html', context)
+
+def list_categories(request):
+	category = request.category
+	categories = EventPart.objects.get(category=category)
+
+	context = Context({
+		'results': categories,
 	})
 
 	context.update(csrf(request))

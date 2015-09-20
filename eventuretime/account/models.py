@@ -6,7 +6,7 @@ from django.db.models.signals import post_save
 from django_facebook.utils import get_user_model, get_profile_model
 from eventuretime import settings
 
-class Profile(FacebookModel):
+class Profile(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name='profile')
 	profile_model = get_profile_model()
 
@@ -23,7 +23,7 @@ class Profile(FacebookModel):
 
 	friends = models.ManyToManyField('self', blank=True)
 
-	address = models.CharField(max_length=200)
+	address = models.CharField(max_length=200, null=True, blank=True)
 
 	def __str__(self):
 		return self.user.first_name or self.facebook_id

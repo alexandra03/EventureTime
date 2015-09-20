@@ -1,4 +1,4 @@
-from models import Instagram
+from apis.models import Instagram
 
 import requests
 
@@ -13,7 +13,7 @@ class InstagramAPI:
 		client_id = logins.first().client_id
 
 		params = {
-			'tag': tag, 
+			'tag': tag,
 			'client_id': client_id
 		}
 

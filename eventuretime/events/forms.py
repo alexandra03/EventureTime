@@ -32,7 +32,7 @@ class GenerateEvent(forms.Form):
 			''' yelp! '''
 			yelp = YelpAPI()
 			results = yelp.search('food', location)
-			print results
+			print(results)
 
 	def save(self, commit=True):
 		instance = super(GenerateEvent, self).save(commit=False)
