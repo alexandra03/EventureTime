@@ -11,5 +11,6 @@ class Profile(models.Model):
 
 	friends = models.ManyToManyField('self', blank=True)
 
+
 	def __str__(self):
 		return self.user.first_name or self.facebook_id

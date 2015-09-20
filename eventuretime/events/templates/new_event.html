@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+	<script>
+	function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(function(position){
+	        	$('#latitude').val(position.coords.latitude);
+	        	$('#longitude').val(position.coords.longitude);
+	        });
+	    }
+	}
+	getLocation();
+	</script>
 
 	<div class="content">
 	<h2>Generate events</h2>
@@ -15,14 +26,9 @@
 				</div>
 			{% endfor %}
 		
+			<input type="hidden" id="latitude" name='latitude'>
+			<input type="hidden" id="longitude" name='longitude'>
 			<input type="submit">
 		</form>
 	</div>
-
-
-	<script>
-		$(document).ready(function() {
-			$('#id_date').datepicker();		
-		});
-	</script>
 {% endblock %}
