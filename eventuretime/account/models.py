@@ -1,5 +1,4 @@
 from django.db import models
-<<<<<<< HEAD
 from django.dispatch.dispatcher import receiver
 from django_facebook.models import FacebookModel
 from django.contrib.auth.models import User
@@ -23,6 +22,8 @@ class Profile(FacebookModel):
 	access_token = models.CharField(max_length=300, null=True, blank=True)
 
 	friends = models.ManyToManyField('self', blank=True)
+
+	address = models.CharField(max_length=200)
 
 	def __str__(self):
 		return self.user.first_name or self.facebook_id

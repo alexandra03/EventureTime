@@ -9,6 +9,9 @@ from django.template.context_processors import csrf
 from events.forms import GenerateEvent
 from forms import GenerateEvent
 from apis.instagram import InstagramAPI
+from account.models import Profile
+
+from geolocation.google_maps import GoogleMaps
 
 def index(request):
 	template = loader.get_template('base.html')
@@ -73,3 +76,25 @@ def dashboard(request):
 	context = Context({})
 
 	return HttpResponse(template.render(context))
+
+def near_user(request):
+	user = request.user
+	address = user.address
+
+	# google_maps = GoogleMaps(api_key='AIzaSyAHGsBgxTJMynBui8pOsTdz018HsEagHCg')
+
+	if request.method == 'GET':
+		form = GenerateEvent(user)
+		results = form.generate(address=address)
+	else:
+		form = GenerateEvent(user, request.POST)
+		results = ['event1', 'event2']
+
+	context = Context({
+		'form': form,
+		'results': results,
+	})
+
+	context.update(csrf(request))
+
+	return render_to_response('event.html', context)
