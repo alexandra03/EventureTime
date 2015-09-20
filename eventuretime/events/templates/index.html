@@ -13,7 +13,18 @@
 
 <script>
  new WOW().init();
+
+ function popUp(URL) {
+  day = new Date();
+  id = day.getTime();
+  eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=400,left = 283,top = -16');");
+
+  }
 </script>
+
+<style>
+	a:visited { color: #1baba7; }
+</style>
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -81,7 +92,7 @@
         <div class="row">
             <div class="wow fadeIn col-lg-8 col-lg-offset-2">
                 <h2> About Eventure Time </h2>
-                <p>Ever wondered what's going on around you? Looking to take an awesome instagram picture to make all of your follwers jealous of your social life?
+                <p>Ever wondered what's going on around you? Looking to take an awesome Instagram picture to make all of your follwers jealous of your social life?
                     <br>
                     <br>
                     <b>Eventure Time is an online platform that allows you to find any event near you based on your interest. Simply login to Facebook and instantaneously see events you might be interested in.</b>
@@ -103,7 +114,7 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <h2>Sign Up for Eventure Time</h2>
                     <p> Sign up and Login using Facebook</p>
-                    <a href="http://facebook.com"><button> Login to Facebook</button></a>
+                    <a href="/login"  onclick="window.open(this.href, 'newwindow', 'width=300, height=250'); return false;"><button> Login to Facebook</button></a>
                 </div>
             </div>
         </div>
