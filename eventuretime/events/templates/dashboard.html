@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
+
+
+            <div class="categories">
+            	<div class="container-fluid">
+            	<h1> Find Events </h1>
+            	<hr>
+            	<div class="row">
+            		<a href="{% url 'events_category' 'music' %}">
+            			<div class="category category1 col-md-5 col-lg-5">
+            				<h3>Music </h3>
+            				<p>"One good thing about music, when it hits you, you feel no pain."<br> -Bob Marley</p>
+            			</div>
+            		</a>
+            		<a href="{% url 'events_category' 'food' %}">	
+            			<div class="category category2 col-lg-7 col-md-7">
+            				<h3>Food </h3>
+            				<p>"Ask not what you can do for your country. Ask what's for lunch"<br> -Orson Welles</p>
+            			</div>
+            		</a>
+            	</div>
+            	<div class="row">
+            		<a href="{% url 'events_category' 'party' %}">
+            			<div class="category category3 col-md-7 col-lg-7">
+            				<h3>Party </h3>
+            				<p>"I didn't fall. The floor just needed a hug"<br> -Unknown</p>
+            			</div>
+            		</a>
+            		<a href="{% url 'events_category' 'sports' %}">	
+            			<div class="category category4 col-lg-5 col-md-5">
+            				<h3>Sports </h3>
+            				<p>"The score never interested me, only the game."<br> -Mae West</p>
+            			</div>
+            		</a>
+            	</div>
+            	<div class="row">
+            		<a href="{% url 'events_category' 'meeting' %}">
+            			<div class="category category5 col-md-5 col-lg-5">
+            				<h3>Meetings</h3>
+            				<p>"The least productive people are usually the ones who are most in favor of holding meetings."<br> -Thomas Sowell</p>
+            			</div>
+            		</a>
+            		<a href="{% url 'events_category' 'celebration' %}">	
+            			<div class="category category6 col-lg-7 col-md-7">
+            				<h3>Celebrations</h3>
+            				<p>"Celebrate good times... come on!"<br> -Kool & the Gang</p>
+            			</div>
+            		</a>
+            	</div>
+
+                <div class="suggestedEvents">
+                <div class="container-fluid">
+                    <h1> Suggested Events </h1>
+                    <hr>
+                    <div class="row">
+                        <a href="#">
+                            <!--Link to event page -->
+                            <div class="eventPreview col-lg-6 col-md-6">
+                                <img src="/static/imgs/event2.jpg">
+                                <h4> Evergreen community centre Registration </h4>
+                                <h5> September 30th 2015 at <b> 7:00 AM </b></h5>
+                                <h5> Evegreen community centre </h5>
+                                <h6> Sports, Lifestyle </h6>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="eventPreview col-lg-6 col-md-6">
+                                <img src="/static/imgs/event1.jpg">
+                                <h4> Urbanscapes</h4>
+                                <h5> October 4th 2015 at <b> 9:00 AM </b></h5>
+                                <h5> Toronto </h5>
+                                <h6> Music </h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="row">
+                        <a href="#">
+                            <div class="eventPreview col-lg-6 col-md-6">
+                                <img src="/static/imgs/event3.jpg">
+                                <h4> Say no to violence</h4>
+                                <h5> October 5th 2015 at <b> 3:00 PM </b></h5>
+                                <h5> City Square </h5>
+                                <h6> Other </h6>
+                            </div>
+                        </a>
+                        </a href="#">
+                        <div class="eventPreview col-lg-6 col-md-6">
+                            <img src="/static/imgs/event4.jpg">
+                            <h4> Live Blues & Jazz</h4>
+                            <h5> October 20th 2015 at <b> 7:00 PM </b></h5>
+                            <h5> Victoria Park </h5>
+                            <h6> Music </h6>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+{% endblock %}

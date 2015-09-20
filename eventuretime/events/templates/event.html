@@ -1,5 +1,31 @@
 {% extends 'base.html' %}
-
 {% block content %}
-	{{ form }}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
+
+        	<div class="event">
+        		<h1> Event Title </h1>
+        	</hr>
+
+        	<img class="bannerPhoto" src="/static/imgs/event2.jpg">
+        	<h4>Thursday June 5th at 7:00pm </h4>
+        	<h4> Location of Event </h4>
+        	<h5> Category of Event </h5>
+        	<hr>
+
+        	<!--Description of event -->
+        	<p> Some text about the description that would be user inputted blah blah blah and we're so excited for this great event and we'd love to see you there yay! </p>
+
+        	<h2>Photo Album </h2>
+        	<!-- pull instagram photos with certain hashtag here -->
+            
+{% for pic in pictures %}
+    <img src={{ pic.images.low_resolution.url }}> {{ pic.images.likes.count }}
+{% endfor %}
+</div>
+
+
 {% endblock %}

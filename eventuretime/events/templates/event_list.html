@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content">
+    <div class="suggestedEvents">
+        <div class="container-fluid">
+            <h1> {{ title }} </h1>
+            <hr>
+            {% for event in events %}
+                <div class="row">
+                    <a href="{% url 'eventpage' event.id %}">
+                        <div class="eventPreview col-lg-6 col-md-6">
+                            <img src="/static/imgs/city_header.jpg">
+                            <h4> {{ event.name }}  </h4>
+                            <h5> {{ event.location }} </h5>
+                            <h6> {{ event.get_category_display }} </h6>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
+
+        	<div class="event">
+        		<h1> {{ event.title }} </h1>
+        	</hr>
+
+        	<img class="bannerPhoto" src="/static/imgs/city_header.jpg">
+        	<h4>Thursday June 5th at 7:00pm </h4>
+        	<h4> 
+                {% for part in event.event_parts.all %}
+                    {{ part.name }},
+                {% endfor %}
+            </h4>
+        	<h5> 
+                {% for part in event.event_parts.all %}
+                    {{ part.get_category_display }},
+                {% endfor %}
+            </h5>
+            <h4> 
+                {% for part in event.event_parts.all %}
+                    <button class="uber">
+                        <a href="https://m.uber.com/sign-up?client_id=KrkcXqmSkCj26bYcnsoP0xwe4HqVyO20">
+                            Request an Uber to {{ part.name }}
+                        </a>
+                    </button>
+                {% endfor %}
+            </h4>   
+            <hr>         
+        	<!--Description of event -->
+        	<p> {{ event.description }} </p>
+
+        	<h2>Photo Album </h2>
+        	<!-- pull instagram photos with certain hashtag here -->
+            
+{% for pic in pictures %}
+    <img src={{ pic.images.low_resolution.url }}> {{ pic.images.likes.count }}
+{% endfor %}
+
+
+{% endblock %}

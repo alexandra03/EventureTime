@@ -1,3 +1,56 @@
-<h1>Hello world!</h1>
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" />
+
+
+<script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery-2.1.4.js">
+</script> 
+<script type="text/javascript" src="/static/js/jquery-2.1.4.js">
+</script> 
+
+<div class="topnav">
+<ul class="">
+	<img class="" class="logoImg" src="/static/imgs/city.jpg">
+        <li>
+            <a href="#">Profile Name &nbsp; &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">My Events</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<h1 class="title">EventureTime</h1>
+
+
+<div class="sidebar">
+	<h1>&nbsp</h1>
+	<a href="{% url 'dashboard' %}">
+	<div class="logo">
+	<img class="logoImg" src="/static//imgs/icon2.png"></div>
+</a>
+	<h2> Profile Name </h2>
+
+
+
+
+	<div class="sidebarText">
+		<li><a href="{% url 'my_events' %}">&#x25a0; My Events</a></li>
+		<li><a href="#upcoming">&#x25a0; Upcoming Events</a></li>
+		<li><a href="{% url 'dashboard' %}">&#x25a0; Browse Events</a></li>
+		<a href="{% url 'new_event' %}"><button>Make an event </button></a>
+	</div>
+	</div>
+
+
+</div>
+
+<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/bootstrap-dropdown.js"></script>
 
 {% block content %}{% endblock %}
