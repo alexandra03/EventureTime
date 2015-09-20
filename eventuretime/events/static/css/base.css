@@ -832,6 +832,7 @@ ul{		float:right;
 	font-size:28px;
     -webkit-font-smoothing: antialiased;
 }
+a, a:hover, a:active, a:visited { color: white; }
 
 .bannerPhoto {
 	display:block;
@@ -965,6 +966,7 @@ input[type="text"].focus {
 }
 
 .uber {
+    margin-bottom: 5px;
     background-color: #E08A20;
     color: #ffffff;
     text-align: center;

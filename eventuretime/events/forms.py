@@ -13,6 +13,8 @@ class GenerateEvent(forms.Form):
 	'''
 	Collects main settings for the event collection
 	'''
+	name = forms.CharField()
+
 	date = forms.DateField(widget=forms.TextInput(attrs={'class' : 'date'}));
 
 	location = forms.CharField()
@@ -21,6 +23,7 @@ class GenerateEvent(forms.Form):
 
 	invitees = forms.ModelMultipleChoiceField(Profile,widget=forms.Select(attrs={'class':'categoriesDrop'}));
 
+	tag = forms.CharField()
 
 	def __init__(self, user, *args, **kwargs):
 		super(GenerateEvent, self).__init__(*args, **kwargs)
@@ -31,11 +34,15 @@ class GenerateEvent(forms.Form):
 		location = self.cleaned_data['location']
 		categories = self.cleaned_data['categories']
 		date = self.cleaned_data['date']
+		name = self.cleaned_data['name']
+		tag = self.cleaned_data['tag']
 
-		main_event = Event.objects.create(owner=owner.profile, public=False)
+		main_event = Event.objects.create(owner=owner.profile, public=False, name=name, tag=tag)
 		main_event.save()
+
 		for person in invitees:
 			main_event.invited.add(person)
+
 		main_event.save()
 
 		itinerary = []
