@@ -2,62 +2,70 @@
 
 {% block content %}
 	<script>
-	function getLocation() {
-	    if (navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(function(position){
-	        	$('#latitude').val(position.coords.latitude);
-	        	$('#longitude').val(position.coords.longitude);
-	        });
-	    }
-	}
-	getLocation();
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(function(position){
+		        	$('#latitude').val(position.coords.latitude);
+		        	$('#longitude').val(position.coords.longitude);
+		        });
+		    }
+		}
+		getLocation();
+
+		$(document).ready(function() {
+			$('.choose').click(function() {
+				$.post('{% url "save_event" %}', {'results': JSON.stringify('{{ results }}'), csrfmiddlewaretoken: '{{ csrf_token }}'}).success(function() {
+					window.location.replace('{% url "dashboard" %}');
+				});			
+			});
+		});
 	</script>
 
 <div class="generate">
-<div class="container-fluid">
-    <div class="row">
-        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
-	<h2>Generate events</h2>
+	<div class="container-fluid">
+	    <div class="row">
+	        <div class="wrapper1 col-lg-9 col-md-9 col-sm-9 pull-right">
+				<h2>Generate events</h2>
 
-		<form action='.' method='post' class='generate-events-form'>
-			{% csrf_token %}
+				<form action='.' method='post' class='generate-events-form'>
+					{% csrf_token %}
 
 
-			{% for field in form %}
-				<div class='line-group'>
-					{{ field.label }}
+					{% for field in form %}
+						<div class='line-group'>
+							{{ field.label }}
 
-					
-					{{ field }}
-				</div>
-			{% endfor %}
-		
-			<input type="hidden" id="latitude" name='latitude'>
-			<input type="hidden" id="longitude" name='longitude'>
-			<button type="submit" class="submit">Generate!</button>
-		</form>
+							
+							{{ field }}
+						</div>
+					{% endfor %}
+				
+					<input type="hidden" id="latitude" name='latitude'>
+					<input type="hidden" id="longitude" name='longitude'>
+					<button type="submit" class="submit">Generate!</button>
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
-</div>
-</div>
 
-		{% if results %}
-			<div class="events-list">
-				{% for result in results %}
-					<div class="event-item">
-						{% if result.type == "food" or result.type == "club" or result.type == "other" %}
-							<img src={{ result.image }}> {{ result.name }} 
+	{% if results %}
+		<div class="events-list">
+			{% for result in results %}
+				<div class="event-item">
+					{% if result.type == "food" or result.type == "club" or result.type == "other" %}
+						<img src={{ result.image }}> {{ result.name }} 
 
-						{% elif result.type == "concert" %}
-							{{ result.name }}, {{ result.location }} <br/>
-							<a href={{ result.url }}>Buy tickets</a>
-						{% endif %}
-						<br/>
-					</div>
-				{% endfor %}
+					{% elif result.type == "concert" %}
+						{{ result.name }}, {{ result.location }} <br/>
+						<a href={{ result.url }}>Buy tickets</a>
+					{% endif %}
+					<br/>
+				</div>
+			{% endfor %}
 
-				<button class="submit orange">Choose</button>
-			</div>
-		{% endif %}
+			<button class="submit choose orange">Choose</button>
+		</div>
+	{% endif %}
 	</div>
 {% endblock %}

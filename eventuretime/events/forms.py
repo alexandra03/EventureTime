@@ -31,23 +31,35 @@ class GenerateEvent(forms.Form):
 		super(GenerateEvent, self).__init__(*args, **kwargs)
 		self.fields['invitees'] = forms.ModelMultipleChoiceField(queryset=user.profile.friends.all())
 
-	def generate(self, longitude=None, latitude=None):
-		''' Do cool machine learning things to find events '''
+	def generate(self, owner, longitude=None, latitude=None):
 		invitees = self.cleaned_data['invitees']
 		location = self.cleaned_data['location']
 		categories = self.cleaned_data['categories']
 		date = self.cleaned_data['date']
 
+		main_event = Event.objects.create(owner=owner.profile, public=False)
+		main_event.save()
+		for person in invitees:
+			main_event.invited.add(person)
+		main_event.save()
+
 		itinerary = []
 		yelp = YelpAPI()
 
 		if 'food' in categories:
-			''' yelp! '''
 			results = yelp.search('food', location)['businesses']
 			num = random.randint(0, len(results)-1)
 			place = results[num]
 			event = {'name': place['name'], 'location': place['location'], 'image': place.get('image_url', ''), 'type': 'food'}
-
+			event_part = EventPart.objects.create(
+				name=place['name'],
+				city=place['location']['city'],
+				category='food',
+				event=main_event,
+				start=date,
+				end=date
+			)
+			event_part.save()
 			itinerary.append(event)
 
 			results = yelp.search('desserts', location)['businesses']
@@ -62,7 +74,15 @@ class GenerateEvent(forms.Form):
 			num = random.randint(0, len(results)-1)
 			place = results[num]
 			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'club'}
-
+			event_part = EventPart.objects.create(
+				name=place['name'],
+				city=place['location']['city'],
+				category='club',
+				event=main_event,
+				start=date,
+				end=date
+			)
+			event_part.save()
 			itinerary.append(event)			
 
 		if 'other' in categories or 'sports' in categories:
@@ -70,7 +90,15 @@ class GenerateEvent(forms.Form):
 			num = random.randint(0, len(results)-1)
 			place = results[num]
 			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'other'}
-
+			event_part = EventPart.objects.create(
+				name=place['name'],
+				city=place['location']['city'],
+				category='other',
+				event=main_event,
+				start=date,
+				end=date
+			)
+			event_part.save()
 			itinerary.append(event)	
 
 			results = yelp.search('arts', location)['businesses']
@@ -83,7 +111,15 @@ class GenerateEvent(forms.Form):
 		if 'concert' in categories:
 			concert = Concert().get_local_concerts(location, date)
 			itinerary.append(concert)
-
+			event_part = EventPart.objects.create(
+				name=concert['name'],
+				city=concert['location'],
+				category='concert',
+				event=main_event,
+				start=date,
+				end=date
+			)
+			event_part.save()
 		return itinerary
 
 

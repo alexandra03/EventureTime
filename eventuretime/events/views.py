@@ -9,7 +9,7 @@ from django.template.context_processors import csrf
 from forms import GenerateEvent
 from apis.instagram import InstagramAPI
 
-
+import json
 
 def index(request):
 	template = loader.get_template('base.html')
@@ -66,7 +66,7 @@ def new_event(request):
 		form = GenerateEvent(user, request.POST)
 
 		if form.is_valid():
-			results = form.generate(request.POST['longitude'], request.POST['latitude'])
+			results = form.generate(user, request.POST['longitude'], request.POST['latitude'])
 		else:
 			results = []
 			print form.errors
@@ -79,6 +79,7 @@ def new_event(request):
 	context.update(csrf(request))
 
 	return render_to_response('new_event.html', context)	
+
 
 def dashboard(request):
 	template = loader.get_template('dashboard.html')

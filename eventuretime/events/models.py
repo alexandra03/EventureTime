@@ -9,7 +9,7 @@ class Event(models.Model):
 	'''
 	owner = models.ForeignKey(Profile, related_name='events_owned')
 
-	name = models.CharField(max_length=100)
+	name = models.CharField(max_length=100, default='My new event')
 	
 	description = models.TextField()
 
@@ -53,7 +53,7 @@ class EventPart(models.Model):
 
 	start = models.DateTimeField()
 
-	end = models.DateTimeField()
+	end = models.DateTimeField(null=True, blank=True)
 
 
 	''' Location data '''
@@ -67,7 +67,7 @@ class EventPart(models.Model):
 
 
 	''' Other '''
-	estimated_cost = models.IntegerField()
+	estimated_cost = models.IntegerField(default=0)
 
 
 	def __str__(self):
