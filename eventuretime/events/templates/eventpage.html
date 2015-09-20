@@ -22,10 +22,14 @@
                     {{ part.get_category_display }},
                 {% endfor %}
             </h5>
-        	<hr>
-
+            <h4> 
+                {% for part in event.event_parts.all %}
+                    <button class="uber">Request an Uber to {{ part.name }}</button>
+                {% endfor %}
+            </h4>   
+            <hr>         
         	<!--Description of event -->
-        	<p> Some text about the description that would be user inputted blah blah blah and we're so excited for this great event and we'd love to see you there yay! </p>
+        	<p> {{ event.description }} </p>
 
         	<h2>Photo Album </h2>
         	<!-- pull instagram photos with certain hashtag here -->
