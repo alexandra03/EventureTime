@@ -58,10 +58,9 @@ def new_event(request):
 		results = None
 	else:
 		form = GenerateEvent(user, request.POST)
-		results = ['event1', 'event2']
 
 		if form.is_valid():
-			form.generate(request.POST['longitude'], request.POST['latitude'])
+			results = form.generate(request.POST['longitude'], request.POST['latitude'])
 		else:
 			print form.errors
 

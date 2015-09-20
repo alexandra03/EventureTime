@@ -30,5 +30,18 @@
 			<input type="hidden" id="longitude" name='longitude'>
 			<input type="submit">
 		</form>
+
+		{% for result in results %}
+			<div class="event-item">
+				{% if result.type == "food" or result.type == "club" or result.type == "other" %}
+					{{ result.name }} <img src={{ result.image }}>
+
+				{% elif result.type == "concert" %}
+					{{ result.name }}, {{ result.location }} <br/>
+					<a href={{ result.url }}>Buy tickets</a>
+				{% endif %}
+				<br/>
+			</div>
+		{% endfor %}
 	</div>
 {% endblock %}
