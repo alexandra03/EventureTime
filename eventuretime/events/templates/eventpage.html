@@ -21,6 +21,10 @@
 
         	<h2>Photo Album </h2>
         	<!-- pull instagram photos with certain hashtag here -->
+            
+{% for pic in pictures %}
+    <img src={{ pic.images.low_resolution.url }}> {{ pic.images.likes.count }}
+{% endfor %}
 
 
 {% endblock %}
