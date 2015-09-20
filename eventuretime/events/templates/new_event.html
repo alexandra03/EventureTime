@@ -31,19 +31,23 @@
 			<button type="submit" class="submit">Generate!</button>
 		</form>
 
-		<div class="events-list">
-		{% for result in results %}
-			<div class="event-item">
-				{% if result.type == "food" or result.type == "club" or result.type == "other" %}
-					<img src={{ result.image }}> {{ result.name }} 
+		{% if results %}
+			<div class="events-list">
+				{% for result in results %}
+					<div class="event-item">
+						{% if result.type == "food" or result.type == "club" or result.type == "other" %}
+							<img src={{ result.image }}> {{ result.name }} 
 
-				{% elif result.type == "concert" %}
-					{{ result.name }}, {{ result.location }} <br/>
-					<a href={{ result.url }}>Buy tickets</a>
-				{% endif %}
-				<br/>
+						{% elif result.type == "concert" %}
+							{{ result.name }}, {{ result.location }} <br/>
+							<a href={{ result.url }}>Buy tickets</a>
+						{% endif %}
+						<br/>
+					</div>
+				{% endfor %}
+
+				<button class="submit orange">Choose</button>
 			</div>
-		{% endfor %}
-		</div>
+		{% endif %}
 	</div>
 {% endblock %}

@@ -503,3 +503,7 @@ input[type="text"].focus {
     -moz-transition: 0.25s all;
     -webkit-transition: 0.25s all;	
 }
+
+.orange {
+	background-color: #E08A20;
+}

@@ -5,6 +5,9 @@ from apis.concert import Concert
 
 from django import forms
 
+import random
+random.seed()
+
 
 class GenerateEvent(forms.Form):
 	'''
@@ -36,34 +39,39 @@ class GenerateEvent(forms.Form):
 		if 'food' in categories:
 			''' yelp! '''
 			results = yelp.search('food', location)['businesses']
-			place = results[0]
-			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'food'}
+			num = random.randint(0, len(results)-1)
+			place = results[num]
+			event = {'name': place['name'], 'location': place['location'], 'image': place.get('image_url', ''), 'type': 'food'}
 
 			itinerary.append(event)
 
 			results = yelp.search('desserts', location)['businesses']
-			place = results[0]
-			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'food'}
+			num = random.randint(0, len(results)-1)			
+			place = results[num]
+			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'food'}
 
 			itinerary.append(event)
 
 		if 'club' in categories:
 			results = yelp.search('nightlife', location)['businesses']
-			place = results[0]
-			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'club'}
+			num = random.randint(0, len(results)-1)
+			place = results[num]
+			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'club'}
 
 			itinerary.append(event)			
 
 		if 'other' in categories or 'sports' in categories:
 			results = yelp.search('active', location)['businesses']
-			place = results[0]
-			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'other'}
+			num = random.randint(0, len(results)-1)
+			place = results[num]
+			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'other'}
 
 			itinerary.append(event)	
 
 			results = yelp.search('arts', location)['businesses']
-			place = results[0]
-			event = {'name': place['name'], 'location': place['location'], 'image': place['image_url'], 'type': 'other'}
+			num = random.randint(0, len(results)-1)
+			place = results[num]
+			event = {'name': place['name'], 'location': place['location'], 'image':  place.get('image_url', ''), 'type': 'other'}
 
 			itinerary.append(event)
 
